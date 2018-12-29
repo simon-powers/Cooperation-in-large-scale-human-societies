@@ -1,0 +1,411 @@
+\documentclass[12pt]{article}
+
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{natbib}
+\usepackage{epigraph}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.50.0.2960}
+%TCIDATA{Codepage=1252}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="3">}
+%TCIDATA{BibliographyScheme=BibTeX}
+%TCIDATA{Created=Tuesday, November 13, 2007 17:18:38}
+%TCIDATA{LastRevised=Monday, June 09, 2014 02:30:29}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
+%TCIDATA{Language=American English}
+%TCIDATA{CSTFile=40 LaTeX article.cst}
+%TCIDATA{ComputeDefs=
+%$\upsilon \left( m,N\right) =\frac{(1-m)^{2}\cdot N}{\left( 1-m+N\right)
+%\cdot \left( 2-2m+Nm\right) }$
+%}
+
+
+\setlength{\epigraphwidth}{0.7\linewidth}
+
+\newenvironment{proof}[1][Proof]{\noindent \textbf{#1.} }{\  \rule{0.5em}{0.5em}}
+\raggedbottom
+\topmargin -0.575in  \oddsidemargin -0.03125in \evensidemargin -0.03125in \textheight 9in \textwidth 6.5in \footskip 42pt \parskip 6pt \footnotesep 18pt
+\baselineskip=0.6cm
+\renewcommand{\baselinestretch}{1.3}
+
+\newcommand{\de}{\mathop{}\! \mathrm{d}}
+\newcommand{\s}{S}
+\newcommand{\pa}{\pi}
+\newcommand{\pav}{\boldsymbol{\pi}}
+\newcommand{\br}{b}
+\newcommand{\Z}{\mathcal{B}}
+\newcommand{\zm}{b}
+\newcommand{\ut}{u}
+
+%\input{tcilatex}
+\begin{document}
+
+\section*{Appendix to ``Cooperation in large-scale human societies--What is the problem? How did it evolve?}
+
+In order to frame our discussion of the main text into evolutionary theory we here present more formally the concept introduced in the main text. To that end, we consider an idealized population without overlapping generations, where within each demographic time period, individuals interacts (possibly repeatedly) in groups were there is a fixed number $n$ of individuals that have access to a finite number of usable material resources. 
+
+
+\section*{Interactive environment}
+
+We follow the standard model of the behavioral sciences (e.g., %
+\citealp{McFarlandH81,RubinsteinO94,Haykin99,Leimar97,EnquistG05}) that 
+ the \emph{action} (e.g., a motor pattern, a signal, or a transfer of resources to a neighbor) is the fundamental behavioral unit by which an individual interacts with
+others in each time period. We denote by $\mathbf{a}=(a_{1,t},a_{2,t},...a_{n,t})$ a profile of actions for the individuals in a focal group (like cooperate or defect or amount of provisioning to a public good), where $a_{i,t}$ is the action of individual $i$ at social time $t$ (social time occurs faster than demographic time). The profile of actions belongs to some set of group feasible actions $\mathcal{A}$ ($\mathbf{a}\in \mathcal{A}$). Actions results in outcomes, i.e., resource allocation between individuals, infrastructure constructed, amount of taxes paid, and this can formally be represented by an outcome function $h_t:\mathcal{A}\to\mathcal{O}$, so that $o_t=h_t(\mathbf{a}_t)$ is the outcome $o_t \in \mathcal{O}$ when individuals in the group play action profile $\mathbf{a}_t$ at time $t$ and where $\mathcal{O}$ is the set of resource outcomes. Individuals obtain rewards from outcomes and we represent by $\pa_{i,t}(o)$ the reward to individual $i$ when outcome $o$ obtains. Importantly, the reward depends on the profile of actions since outcomes depend on action ($o=h(\mathbf{a})$) and so we have $\pa_{i,t}=\pa_i(\mathbf{a}_t)$. 
+
+The fundamental assumption about material reward we make is that it is a positive real number ($\pa_{i,t} \in \mathbf{R}_{+}$), and this leads us to distinguish between three different operational concepts of rewards appearing in the literature:
+\begin{description}
+\item[The instantaneous reward $\pa_i(\mathbf{a}_t)$,] which is simply the reward obtained at time $t$ and depends on the behavior of group members $ \mathbf{a}_t$ at that time.
+
+\item[The cumulative reward $\boldsymbol{\pa}_{i}$,] which is some weighted cumulative reward of the instantaneous reward $\pa_i(\mathbf{a}_t)$ over the entire social time period, often (but not always) as the discounted reward $\boldsymbol{\pa}_{i}=\sum^\infty_{t=0}\delta^t\pa_i(\mathbf{a}_t)$, for some discount rate $\delta$. Hence, the cumulative payoff of an individual depends on the whole stream of actions $\{\mathbf{a}_t \}^\infty_{t=0}$ during multiple rounds of interactions.
+
+\item[Individual fitness $w_i$,] which is the expected number of offspring produced by an individuals over one demographic time period, and is some complex function of the cumulative reward of each individual in the population the population.
+\end{description}
+
+\section*{Behavior}
+
+We now introduce a model of behavior and follow behavioral ecology (e.g., %
+\citealp{McFarlandH81,Leimar97,EnquistG05}) by assuming that the action \begin{equation}
+a_{i,t}=d_{i}(s_{i,t}),  \label{behavmap}
+\end{equation}%
+taken by individual $i$ at time $t$ is determined by the individual's \emph{internal state} $%
+s_{i,t}$ by way of a \emph{decision rule} $d_{i}$ (which can result in the randomization of actions). An individual's (internal) state changes (possibly randomly) over time
+and the state of individual $i$ at any time $t>1$, 
+\begin{equation}
+s_{i,t}=g_{i}(s_{i,t-1},e_{i,t-1}),  \label{transition}
+\end{equation}
+is determined by the individual's state $s_{i,t-1}$ in the
+previous time period and the information $e_{i,t-1}$ obtained during
+that time period. This information could consist of any more or less noisy private
+or public signals about the individual's own action and/or that of others, and any feature of the environment. 
+
+Equation~\ref{behavmap}-\ref{transition} define the so-called state space approach to behavior and emphasize that behavior is predicted from knowledge of a set of internal states and stimuli of the organisms. In order to fully specify behavior we also need to specify the sets $\mathcal{A}_i$, $\mathcal{S}_i$, $\mathcal{E}_i$, where are, respectively the set of actions, of states, and information of individual $i$ (e.g., $a_{i,t} \in \mathcal{A}_i$, $s_{i,t} \in \mathcal{S}_i$, $e_{i,t} \in \mathcal{E}_i$. We call 
+\begin{equation}
+\br_i = (d_{i} , g_i , s_{i,0} , \mathcal{A} , \mathcal{S} ,  \mathcal{E})
+\end{equation}
+the behavior
+rule of individual $i$, where . A behavior rule completely determines how an individual acts and reacts to others. When the set of internal states is
+infinite, a behavior rule is a infinite state machine
+(Minsky 1967), and as such any neural networks or universal Turing
+machines can be implemented by a behavior rule (Haykin 1999), and hence any behavior, be it influence by any amount of individual and social learning can be implemented by a behavior rule.
+
+For the purpose of our paper and definitiveness, we let the information obtained by individual $i$ be given by
+\begin{equation}
+e_{i,t}=(a_{i,t},\pa_{i,t},a_{-i,t},\pav_{-i,t}),  \label{transition}
+\end{equation}
+where $a_{i,t}$ ($\pa_{i,t}$) is the realized action (material payoff) profile of individual $i$ and $\mathbf{a}_{-i,t}$ ($\pav_{-i,t}$)  is the action (material payoff) profile of all individuals in the population excluding $i$. The material payoff, in turn, of each individual, depends on the action of each individual in the population, namely $\pa_{i,t}(\mathbf{a})$, where $\mathbf{a}=(a_1,a_2,...a_n)$ a profile of actions for the individuals. 
+
+\section*{Evolution}
+
+
+\subsection*{Evolution equilibria}
+
+We can now couple the behavioral model of the last section to evolutionary dynamics. Because the behavioral rule specifies how an individual acts in its environment and is the lowest level of description of behavior, we can take as the behavior rule as an individuals ``type'' or genotype.\footnote{It may be argued that $\mathcal{A}$, $\mathcal{S}$, $\mathcal{E}$ may depend in part on the interaction of an individual with its environment and is influenced by individual and social learning. This possibility is implicitly taken into account in the model, as the we can defined the states as the feasible physiological states, while the effective may be specified dynamical. Hence, we have no loss in generality in specifying the behavioral as being the individual's genotype.  }
+
+The cumulative payoff $\boldsymbol{\pa}_{i}$ of an individual depends possibly on the behavior rule (or strategy) of each individual in its groups, and the fitness of individual $w_i$ depends on the behavior rule of each individual in the population. The evolutionary dynamics of a given behavioral $\br$ is ascertained from neither $\boldsymbol{\pa}_{i}$, nor from $w_i$, but from the fitness $W(\br)$ of the average carrier of a behavioral rules, which is the average individual fitness of a carrier of the behavioral rule over all possible genetic-demographic back in which that individual can reside (i.e., inclusive fitness). We will not go here into the details of evolutionary dynamics, but what is important in our account is that inclusive fitness ($W$), depends on individual fitness, $w$, which in turn depends on cumulative reward ($\pa$), itself a function of instantaneous reward ($\pa_t$). For a mutant population, an evolutionary equilibrium is then an evolutionary stable strategy, which satisfies $\br^\ast$
+\begin{equation}
+\max_{\zm \in \Z }W(\zm ,\br^\ast)
+\label{UnInvadCond}
+\end{equation}
+that is it is the best strategy among the set of behavior rules.
+
+More to be explained here...
+
+%Hence, we can ultimately see fitness $w_i(\boldsymbol{b})$ as a function of the genotype of all individuals in the population, which is listed in the vector of genotypes $\boldsymbol{b}=(b_1,b_2,...)$. An evolutionary stable equilibria then satisfies
+
+\subsection*{Adaptation and cooperation}
+
+
+More to be explained here...
+
+We introduced three concepts of individuals rewards above (inclusive fitness is a property of an allele), and we denote generically any of these rewards by $\ut$. Rewards allow us to operationalize the group wide reward (or wealth) as $G(\mathbf{a})=\sum^n_{i=1}u_i=u_i(\mathbf{a})+G_{-i}(\mathbf{a})$, where $G_{-i}(\mathbf{a})=\sum_{j \neq i}u_j(\mathbf{a})$ is the sum of all rewards excluding $i$. Further, rewards allow us to operationalize the idea of \textit{adaptation} and we here endorse the concept of adaptation of \citet{ReeveS93}, which is \textit{a phenotypic variant that results in the highest ``fitness'' among a specified set of variants in a given environment}. 
+
+
+
+
+
+
+By ``fitness'' we here mean reward. Hence, individual $i$ behaves adaptively if it carries out action $a^\ast$ that solves the maximization problem $\max_{a_i \in \mathcal{A}_i}u_i(a_i,\mathbf{a}_{-i})$, where $\mathbf{a}_{-i}$ is the action profile in the group excluding $i$ (the environment of $i$) and $\mathcal{A}_i$ is its action set. We can now also define operationally the term cooperation and we do so, for simplicity of presentation, by assuming a continuum of actions (i.e., investment or mixed strategies, $a_i \in \mathbf{R}$ for all $i$). We follow sociobiology by saying that individual $i$ expresses an act of cooperation if the act is beneficial to self and to other group members ($\partial u_i(a_i,\mathbf{a}_{-i})/\partial a_i>0$ and $\partial G_{-i}(\mathbf{a})/\partial a_i>0$ \citealp{Rousset04,LehmannK06a,Bshary07}). By contrast, the act is altruistic if
+it reduces the reward to self and increases other's reward ($\partial u_i(a_i,\mathbf{a}_{-i})/\partial a_i<0$ and $\partial G_{-i}(\mathbf{a})/\partial a_i>0$) and such an action cannot be an adaptation according to our definition.\footnote{We here rule out the possibility of kin selection which would entail that we define rewards at the gene lineage level.}
+
+
+
+
+% and it can represent at least four quantities: (1) biological (individual) fitness, namely expected number of offspring produced by $i$ over a given demographic period as considered in evolutionary biology \citep{Rousset04}; (2) cultural fitness, namely expected number of cultural offspring produced by $i$ as considered in cultural evolution \citep{FeldmanCa81}; (3) material rewards such as total amount of wealth as often considered in microeconomics \citep{PindyckR01}; (4) or some psychological reward allowing an individual to make decisions, as considered in reinforcement learning \citep{Dugatkin04}.
+
+%We do not model explicitly how individuals take actions as the literature considers a spectrum of situations and processes depending on the four different conceptions of rewards just introduced. However, we do assume that actions associated with higher reward $u_i$ are likely to be favored in the long run (by genetic, cultural, or eductive evolution), otherwise the concept of reward would tend to be vacuous. 
+
+
+
+
+
+In order to have a link to the group selection literature (REf), we can also write individual reward $u_i(a_i,\mathbf{a}_{-i})=I_i(\mathbf{a})G_{i}(\mathbf{a})$ as the group reward multiplied by the share
+$I_i(\mathbf{a})=u_i(\mathbf{a})/G_{i}(\mathbf{a})$ of the group reward that belongs to individual $i$. From this, we have\begin{equation}
+\frac{\partial u_i(a_i,\mathbf{a}_{-i})}{\partial a_i}=\frac{\partial I_i(\mathbf{a})}{\partial a_i}n+\frac{1}{n}\frac{\partial G_i(\mathbf{a})}{\partial a_i},
+\end{equation}
+where all derivatives are evaluated at the same value $a$ and were assumed that is such a monomorphic population the reward is normalized to one (which is necessarily the case when the reward is biological fitness \citealp{Rousset04}). This decomposes the change in reward in within group and between group selection component (the two terms in eq.~1 correspond to the classical terms in the Price equation). We say that there is a social dilemma if $\partial I_i(a_i,\mathbf{a}_{-i})/\partial a_i<0$, which is the definition of weak altruism (Wilson) used in the group selection literature. An action is adaptive only if the cost relative to the group are swamped by the direct effects of self on group fitness. Note that the definition of cooperation implies weak altruism, hence the concept of ``social dilemma'' and weak altruism is redundant.\footnote{From the definition in the text we can write $u_i(\mathbf{a})=I_i(\mathbf{a})\left[u_i(\mathbf{a})+G_{-i}(\mathbf{a}) \right]$. Differentiating with respect to $a_i$ and evaluating all derivatives at $a$, we find that $\partial G_{-i}(\mathbf{a})/\partial a_i=\propto - \partial I_i(a_i,\mathbf{a}_{-i})\partial a_i$. Hence, an act that is cooperative is also weakly altruistic.}
+
+\newpage
+
+
+\subsection*{Institutions, institutional rules, and political and economic game forms}
+
+The outcome function $h$ together with the set of action $\mathcal{A}$ in Box 1 is called a \textit{game form} in game theory as it specifies what individuals can do and the rules mapping action to consequence \citep{RubinsteinO94}. According to this terminology, we call the tuple $\Gamma_\textrm{Econ}=(\mathcal{A},h)$ the \textit{economic game form} as it specifies the material outcomes in the group given resources. Crucially, this game form could be shaped by humanly devised rules of interactions (as emphasized in the economic ({\bf maybe reference to Ostrom, North?}) and biological literature \citep{PowersVSL16}). In order to make the idea that individuals may change the rules of the economic game (form) they play more explicit, we introduce the profile of messages $\mathbf{m}=(m_1,m_2,...m_n)\in\mathcal{M}$ by which individuals can communicate with each other. With this, we can define the outcome function $p:\mathcal{M} \to \mathcal{H}$, where $\mathcal{H}$ is a set of feasible rules of interactions so that the outcome $h=p(m)$ are the rules defining the economic game form. The tuple $\Gamma_\textrm{Pol}=(\mathcal{M},g)$ can thus be called the \textit{political game form}, since as a result of communication and negotiation among the individuals in the group (or subset thereof) they devise rules of interactions. Importantly, these rules could also embody actions modifying the environment to assure the effective implementation of the economic rules (i.e., monitoring behavior, sanctioning,\citep{ReiterH81,Hurwicz96}), but we leave the description of such actions implicit for simplicity of presentation (see \citep{ReiterH81,Hurwicz96} for explicating this).
+
+We now follow \citet[p.~128]{Hurwicz96} by calling an \textit{institution} the communication mechanism generating the rules of an economic game (i.e., the outcome function $h$) and these rules. In other words, an institution $I(h)$ for rule $h$ is a political game form whose outcome are rules, namely $I(h)=(\mathcal{M},p,h)$, whereby we can call the outcome rule $h$ the \textit{institutional rule(s)} and they are part of the definition of an institution. As such \citeauthor{Hurwicz96}'s notion of institution\footnote{For simplicity we dropped the \textit{preliminary} game the definition of institution of \citet[p.~128]{Hurwicz96} as what really matters for our argument is the conceptual distinction between the political game form (the administrative game in \citet{Hurwicz96}) and the economic game form (the substantive game form in \citet{Hurwicz96}). In general, in complex, there will be cascade of game form nested in each other starting with a meta-constitutional game form, and which will be played at different time scales. } is a refinement of the notion of institution of \cite{North90} that are simply the ``rules of the game''. The refinement involves making explicit the communication (and negotiation) process leading to individually devised rules of interaction, which thus emphasizes that social interactions are to be divided into ``political'' and ``economic'' interactions.  As such it makes the concept of institution uniquely human, as non-human primates may not be playing political games in the above sense because of a lack of language \citep{PowersVSL16}. The formal distinction between political and economic game form is also increasingly made in macroeconomics theory \citep[p.~779]{Acemoglu09}.
+
+
+%but it emphasize 
+ 
+ 
+ %This concept of insitution as ``player-institution'' such as a organisitional or state presidency. 
+
+
+
+
+%and $\mathcal{R}$ is the set of institutional rules. We call the game form $\Gamma_\textrm{Pol}=(\mathcal{M},g)$, the political game form, and follows by calling an institution.
+
+
+%Hence, as a results of this construction the outcome also depends on the political game. Note that individuals could have rewards both from the outcome as well as the rules of the game and we could write $u_i(h,\mathbf{a})$. It is also important to 
+
+
+%As a result of the two type of interactions (political and economical) individuals obtain some material reward. The material reward $\pi_i(a_i,m_i,o,r,e)$ to individual $i$ depends on its actions ($a_i,m_i$) in the game,  the outcome $o\in\mathcal{O}$, the prevailing institutional rule $r\in\mathcal{R}$, and the resource endowment $e \in\mathcal{E}$. We denote by $\boldsymbol{\pi}=(\pi_i)_{i\in I}$ the payoff stream to each individual in the population.
+
+
+
+%Individuals have a behavior rule to take decisions. As we want to spectrum cases from the case where individuals are fully rational to mypopic, we let their behavior depend on the state as well as on the institutional rules and outcomes:
+
+
+%Individuals have a behavior rule to take decisions. As we want to spectrum cases from the case where individuals are fully rational to mypopic, we let their behavior depend on the state as well as on the institutional rules and outcomes:.
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+%\bibliographystyle{/Data/Manuscript/AmNat}
+%\bibliography{/Data/Manuscript/BiblioGeneral}
+
+
+
+
+
+\newpage
+
+\end{document}
+
+
+\subsection*{Environment}
+
+We consider a population of interacting individuals that reproduce at discrete time time points. %$I=\{1,2,...,n\}$ with $n$ interacting individuals where individuals are indexed by $i\in I$.
+In a given time period the population is in a certain demo-environmental state $\omega \in\Omega$, where $\Omega$ is the state space. A state $\omega$ fully specify the characteristic of individuals and their resource endowments. Specifically we let environment $\Omega$ by the cartesian product of the genotype space $\mathcal{G}$ of the individuals in the population, the space of knowledge $\mathcal{K}$ individuals receive from the parental generation, and the space $\mathcal{E}$ of material resource endowments:
+\begin{equation}
+\Omega=\mathcal{G}\times\mathcal{K}\times\mathcal{R}
+\end{equation}
+
+
+\subsection*{Behaviors}
+
+Individuals have a behavior rule to take decisions. As we want to spectrum cases from the case where individuals are fully rational to mypopic, we let their behavior depend on the state as well as on the institutional rules and outcomes:
+\begin{equation}
+b_\textrm{P}:\mathcal{E}\times \mathcal{O} \times \mathcal{R} \to \mathcal{M},
+\end{equation}
+Likewise for taking actions in the economic games, individual have a behavior rules
+\begin{equation}
+b_\textrm{E}:\mathcal{E}\times \mathcal{O} \times \mathcal{R} \to \mathcal{A}.
+\end{equation}
+
+\subsection*{Change over time}
+
+The state of the systems can change over time
+\begin{equation}
+\omega_{t+1}=f\!\left(\omega_{t},o_t,r_t \right)
+\end{equation}
+
+
+
+
+
+ Hence, the outcome of the political game form are rules to regulate economics interactions.
+
+Second we denote by $\mathcal{A}$ the set of economic actions, which allows us to define an economic game form $\Gamma_\textrm{Econ}=(\mathcal{A},\mathcal{R},h)$ with the mapping
+\begin{equation}
+h:\mathcal{A}\times \mathcal{R} \to\mathcal{O},
+\end{equation}
+where $\mathcal{O}$ is the set of economic outcomes.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+a game form, with the mapping $\pi_i:\mathcal{S}\times \mathcal{E}  \to \mathcal{O}$, where $\mathcal{E}$ is the set of institutional rules.
+
+
+
+Call $\mathcal{S}_i(\theta_i)$ the set of strategies (understood as streams of feasible actions) for individual $i\in I= \{1,2,...,n\}$ in. Call $\mathcal{S}=\mathcal{S}_1\times\cdots\times\mathcal{S}_N$ the set of all strategies. Let $\pi_i:\mathcal{S} \to \mathcal{O}$, be the material payoff to individual $i$. 
+
+ Individuals may face different social situations, for instance game form $\Gamma_1$, $\Gamma_2$.
+
+Note that the outcome function may depend on some regulation we write this is 
+
+$\pi_i:\mathcal{S}\times \mathcal{E}  \to \mathcal{O}$
+
+Hence the we have a mapping $\mathcal{E} \to \mathcal{P}$
+
+Note that the rules of the game $e$ are themselves the outcome of and institutional game form $\Gamma_\textrm{Inst}=(\mathcal{M},g)$, we have the mapping $g:\mathcal{M} \to \mathcal{E}$, where $e$ is an environment
+
+
+We need a budget set $\mathcal{B}$ we have payoff of emplementing $e$
+
+
+The characteristic of individuals are types $\theta_i$.
+
+
+
+Call $\mathcal{S}_i(\theta_i)$ the set of strategies (understood as streams of feasible actions) for individual $i\in \{1,2,...,N\}$, which are feasible given its type. Call $\mathcal{S}=\mathcal{S}_1\times\cdots\times\mathcal{S}_N$ the set of all strategies. Let $\pi:\mathcal{S} \to \mathcal{O}$, be the material payoff.
+
+
+
+
+
+Call $\mathcal{M}_i(\theta_i)$ the set of message of $i$ and $\mathcal{M}$ the set of messages. $g:\mathcal{M}\rightarrow \mathcal{Z} $ the outcome function. A mechanism $\mathbf{m}=(\mathcal{M},g)$ is a collection of messages spaces $\mathcal{M}$ and outcome function $g$ \citep[p.~866]{MasCollelWG95}.
+
+Budget to the regulator.
+
+
+Importantly the outcome $\pi_\textrm{L}$ may involve behavioral aspect so as to cot rain the original game. For instance, if there are direct regulations, then $\pi_\textrm{L}:\mathcal{S} \times\mathcal{R}\to \mathcal{O}$, where $\mathcal{R}$ is a set of direct constrains on behavior.
+
+The institutions  needs to have resources.
+
+In the presence of institutions the outcome is a game form $z=(\mathcal{S}_\textrm{L},\pi_\textrm{L},b)$, where $\mathcal{S}_\textrm{L}$ is the set of legal strategies, is a material payoff outcome function, and $b$ are actions aimed a modifying the environment of the players, and could involve propaganda and education 
+
+
+
+An institution is $\mathbf{i}=(\mathcal{M},g)$ is a collection of message spaces and outcome function where the outcome itself is a game form. The strategy domain $\mathcal{S}_\textrm{L}$ excludes 
+
+
+
+
+
+\section*{Mechanisms of social interactions}
+
+
+Let $a_i(t)\in\mathcal{A}_i$ be the action expressed in social time period $t=1,2,3,...$, and let $\mathcal{H}$ be the set of terminal histories of actions. 
+
+The action taken by
+individual $i$ at social time $t$, 
+\begin{equation}
+a_{i}(t)=d_{i}(s_{i}(t)),  \label{behavmap}
+\end{equation}
+is assumed to be determined by the individual's \emph{internal state} $%
+s_{i}(t)\in \mathcal{S}$ at $t$, where $\mathcal{S}$ is the set of internal
+states that an individual can be in and $d_{i}$ is the \textit{decision rule}
+of individual $i$, and which can result in the randomization of action
+[formally $d_{i}:\mathcal{S}\rightarrow \Delta \! \left( \mathcal{A}\right) $%
+]. An individual's (internal) state changes (possibly randomly) over time
+and the state of individual $i$ at any time $t>1$, 
+\begin{equation}
+s_{i}(t)=g_{i}(s_{i}(t-1),e_{i}(t-1)),  \label{transition}
+\end{equation}
+is assumed to be determined by the individual's state $s_{i}(t-1)$ in the
+previous social time period and the information $e_{i}(t-1)$ obtained during
+that time period, where $\mathcal{E}$ the set of information [formally $%
+g_{i}:\mathcal{S}\times \mathcal{E}\rightarrow \Delta \! \left(\mathcal{S}
+\right) $]. This information could consist of any more or less noisy private
+or public signals about the individual's own action and/or that of others. 
+
+The triple $b_{i}=\left(d_{i},g_{i},s_{i}(1)\right) $ is called the \emph{
+behavior rule} of individual $i$ and the profile of such mechanisms is denoted $b$. We call the triple $m=(H,\pi,b)$.
+
+\begin{thebibliography}{}
+
+\bibitem[Acemoglu(2009)Acemoglu]{Acemoglu09}
+Acemoglu, D. 2009.
+\newblock Introduction to Modern Economic Growth.
+\newblock Princeton University Press, Princeton, NJ.
+
+\bibitem[Bshary and Bergm{\"u}ller(2007)Bshary and Bergm{\"u}ller]{Bshary07}
+Bshary, R. and R.~Bergm{\"u}ller. 2007.
+\newblock Distinguishing four fundamental approaches to the evolution of
+  helping.
+\newblock \emph{Journal of Evolutionary Biology} 21:405--420.
+
+\bibitem[Cavalli-Sforza and Feldman(1981)Cavalli-Sforza and
+  Feldman]{FeldmanCa81}
+Cavalli-Sforza, L. and M.~W. Feldman. 1981.
+\newblock Cultural Transmission and Evolution.
+\newblock Princeton University Press, NJ.
+
+\bibitem[Dugatkin(2004)Dugatkin]{Dugatkin04}
+Dugatkin, L.~A. 2004.
+\newblock Principles of Animal Behavior.
+\newblock W. W. Norton and Company, London.
+
+\bibitem[Hurwicz(1996)Hurwicz]{Hurwicz96}
+Hurwicz, L. 1996.
+\newblock Institutions as families of game forms.
+\newblock \emph{The Japanese Economic Review} 47:113--132.
+
+\bibitem[Lehmann and Keller(2006)Lehmann and Keller]{LehmannK06a}
+Lehmann, L. and L.~Keller. 2006.
+\newblock The evolution of cooperation and altruism - a general framework and a
+  classification of models.
+\newblock \emph{Journal of Evolutionary Biology} 19:1365--1376.
+
+\bibitem[North(1990)North]{North90}
+North, D.~C. 1990.
+\newblock Institutions, Institutional Change, and Economic Peformance.
+\newblock Cambridge University Press, Cambridge.
+
+\bibitem[Osborne and Rubinstein(1994)Osborne and Rubinstein]{RubinsteinO94}
+Osborne, J.~M. and A.~Rubinstein. 1994.
+\newblock A Course in Game Theory.
+\newblock MIT Press, Massachusetts.
+
+\bibitem[Pindyck and Rubinfeld(2001)Pindyck and Rubinfeld]{PindyckR01}
+Pindyck, R.~S. and D.~L. Rubinfeld. 2001.
+\newblock Microeconomics.
+\newblock Prentice Hall, Upper Saddle River, NJ.
+
+\bibitem[Powers et~al.(2016)Powers, van Schaik, and Lehmann]{PowersVSL16}
+Powers, S., C.~P. van Schaik, and L.~Lehmann. 2016.
+\newblock How institutions shaped the last major evolutionary transition to
+  large-scale human societies.
+\newblock \emph{Philosophical Transactions of the Royal Society B} 371:1--9.
+
+\bibitem[Reeve and Sherman(1993)Reeve and Sherman]{ReeveS93}
+Reeve, H.~K. and P.~W. Sherman. 1993.
+\newblock Adaptation and the goal of evolutionary research.
+\newblock \emph{The Quarterly Review of Biology} 68:1--32.
+
+\bibitem[Reiter and J.(1981)Reiter and J.]{ReiterH81}
+Reiter, S. and H.~J. 1981.
+\newblock A preface on modeling the regulated united states economy.
+\newblock \emph{Hofstra Law Review} 9:1381--1421.
+
+\bibitem[Rousset(2004)Rousset]{Rousset04}
+Rousset, F. 2004.
+\newblock Genetic Structure and Selection in Subdivided Populations.
+\newblock Princeton University Press, Princeton, NJ.
+
+\end{thebibliography}
